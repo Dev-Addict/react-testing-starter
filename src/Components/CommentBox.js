@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
 
 class CommentBox extends Component {
-    state = {comment: ''};
+    constructor(props) {
+        super(props);
+        this.state = {comment: ''};
+        this.onCommentChange = this.onCommentChange.bind(this);
+        this.onCommitSubmit = this.onCommitSubmit.bind(this);
+    }
 
     onCommentChange(event) {
         this.setState({comment: event.target.value});
@@ -16,7 +21,7 @@ class CommentBox extends Component {
     render() {
         return (
             <div className="comment-box-container">
-                <form onSubmit={}>
+                <form onSubmit={this.onCommentChange}>
                     <h4>Add Comment</h4>
                     <textarea value={this.state.comment} onChange={this.onCommentChange}/>
                     <button type="submit"/>
