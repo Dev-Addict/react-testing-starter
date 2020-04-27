@@ -35,3 +35,21 @@ it('has a textarea that users can type in.', () => {
 
     expect(wrappedCommentBox.find('textarea').prop('value')).toEqual(newCommentValue);
 });
+
+it('has a form that submit successfully', () => {
+    const newCommentValue = 'new comment';
+
+    wrappedCommentBox.find('textarea').simulate('change', {
+        target: {
+            value: newCommentValue
+        }
+    });
+
+    wrappedCommentBox.update();
+
+    wrappedCommentBox.find('form').simulate('submit');
+
+    wrappedCommentBox.update();
+
+    expect(wrappedCommentBox.find('textarea').prop('value')).toEqual('');
+});

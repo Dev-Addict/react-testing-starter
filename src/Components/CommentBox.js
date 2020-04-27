@@ -5,14 +5,14 @@ class CommentBox extends Component {
         super(props);
         this.state = {comment: ''};
         this.onCommentChange = this.onCommentChange.bind(this);
-        this.onCommitSubmit = this.onCommitSubmit.bind(this);
+        this.onCommentSubmit = this.onCommentSubmit.bind(this);
     }
 
     onCommentChange(event) {
         this.setState({comment: event.target.value});
     }
 
-    onCommitSubmit(event) {
+    onCommentSubmit(event) {
         event.preventDefault();
 
         this.setState({comment: ''});
@@ -21,10 +21,10 @@ class CommentBox extends Component {
     render() {
         return (
             <div className="comment-box-container">
-                <form onSubmit={this.onCommentChange}>
+                <form onSubmit={this.onCommentSubmit}>
                     <h4>Add Comment</h4>
                     <textarea value={this.state.comment} onChange={this.onCommentChange}/>
-                    <button type="submit"/>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         );
