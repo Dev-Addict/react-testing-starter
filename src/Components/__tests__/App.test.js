@@ -14,14 +14,12 @@ it('doesn\'t crash', () => {
     ReactDOM.unmountComponentAtNode(containerDiv);
 });
 
-it('shows a single CommentBox component.', () => {
+const doesAppContain = component => () => {
     const wrappedApp = shallow(<App/>);
 
-    expect(wrappedApp.find(CommentBox).length).toEqual(1);
-});
+    expect(wrappedApp.find(component).length).toEqual(1);
+};
 
-it('shows a single CommentList component.', () => {
-    const wrappedApp = shallow(<App/>);
+it('shows a single CommentBox component.', doesAppContain(CommentBox));
 
-    expect(wrappedApp.find(CommentList).length).toEqual(1);
-});
+it('shows a single CommentList component.', doesAppContain(CommentList));
