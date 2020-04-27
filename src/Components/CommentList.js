@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class CommentList extends Component {
     render() {
         return (
-            <div>
+            <div className="comment-list-container">
                 CommentList
             </div>
         );
