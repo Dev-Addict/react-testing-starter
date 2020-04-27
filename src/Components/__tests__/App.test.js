@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {shallow} from "enzyme";
 
 import App from "../App";
 import CommentBox from "../CommentBox";
+import CommentList from "../CommentList";
 
 it('doesn\'t crash', () => {
     const containerDiv = document.createElement('div');
@@ -12,12 +14,14 @@ it('doesn\'t crash', () => {
     ReactDOM.unmountComponentAtNode(containerDiv);
 });
 
-it('shows a CommentBox component.', () => {
-    const containerDiv = document.createElement('div');
+it('shows a single CommentBox component.', () => {
+    const wrappedApp = shallow(<App/>);
 
-    ReactDOM.render(<App/>, containerDiv);
+    expect(wrappedApp.find(CommentBox).length).toEqual(1);
+});
 
-    expect(containerDiv).toHaveAnInstanceOf(CommentBox);
+it('shows a single CommentList component.', () => {
+    const wrappedApp = shallow(<App/>);
 
-    ReactDOM.unmountComponentAtNode(containerDiv);
+    expect(wrappedApp.find(CommentList).length).toEqual(1);
 });
