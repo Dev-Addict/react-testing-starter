@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {shallow} from "enzyme";
 
+import Root from "../../Root";
 import App from "../App";
 import CommentBox from "../CommentBox";
 import CommentList from "../CommentList";
@@ -9,7 +10,10 @@ import CommentList from "../CommentList";
 it('doesn\'t crash', () => {
     const containerDiv = document.createElement('div');
 
-    ReactDOM.render(<App/>, containerDiv);
+    ReactDOM.render(
+        <Root>
+            <App/>
+        </Root>, containerDiv);
 
     ReactDOM.unmountComponentAtNode(containerDiv);
 });
