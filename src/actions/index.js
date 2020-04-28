@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {ADD_COMMENT, GET_COMMENTS} from "./types";
+import {ADD_COMMENT, GET_COMMENTS, CHANGE_AUTH} from "./types";
 
 export const addComment = (comment) => {
     return {
@@ -16,4 +16,10 @@ export const getComments = () => {
         type: GET_COMMENTS,
         payload: response
     }
+};
+
+export const changeAuth = () => {
+    return {
+        type: CHANGE_AUTH
+    };
 };
