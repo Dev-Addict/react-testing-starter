@@ -18,13 +18,13 @@ afterEach(() => {
     wrappedCommentBox.unmount();
 });
 
-const doesCommentBoxContain = component => () => {
-    expect(wrappedCommentBox.find(component).length).toEqual(1);
+const doesCommentBoxContain = (component, amount = 1) => () => {
+    expect(wrappedCommentBox.find(component).length).toEqual(amount);
 };
 
 it('has a textarea.', doesCommentBoxContain('textarea'));
 
-it('has a button.', doesCommentBoxContain('button'));
+it('has 2 buttons.', doesCommentBoxContain('button', 2));
 
 it('has a header.', doesCommentBoxContain('h4'));
 

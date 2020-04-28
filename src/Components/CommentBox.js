@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addComment} from "../actions";
+import {addComment, getComments} from "../actions";
 
 class CommentBox extends Component {
     constructor(props) {
@@ -29,9 +29,10 @@ class CommentBox extends Component {
                     <textarea value={this.state.comment} onChange={this.onCommentChange}/>
                     <button type="submit">Submit</button>
                 </form>
+                <button onClick={this.props.getComments} className="get-comments">Get Comments</button>
             </div>
         );
     }
 }
 
-export default connect(null, {addComment})(CommentBox);
+export default connect(null, {addComment, getComments})(CommentBox);
