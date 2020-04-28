@@ -8,21 +8,6 @@ class CommentBox extends Component {
         this.state = {comment: ''};
         this.onCommentChange = this.onCommentChange.bind(this);
         this.onCommentSubmit = this.onCommentSubmit.bind(this);
-        this.shouldNavigate = this.shouldNavigate.bind(this);
-    }
-
-    componentDidMount() {
-        this.shouldNavigate()
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        this.shouldNavigate()
-    }
-
-    shouldNavigate() {
-        if (!this.props.auth) {
-            this.props.history.push('/');
-        }
     }
 
     onCommentChange(event) {
@@ -50,10 +35,4 @@ class CommentBox extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        auth: state.auth
-    };
-};
-
-export default connect(mapStateToProps, {addComment, getComments})(CommentBox);
+export default connect(null, {addComment, getComments})(CommentBox);
