@@ -7,6 +7,11 @@ import CommentList from "./CommentList";
 import {changeAuth} from "../actions";
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.renderAuthButton = this.renderAuthButton.bind(this);
+    }
+
     renderAuthButton() {
         const buttonText = this.props.auth?'Log Out':'Sign In';
         return (
